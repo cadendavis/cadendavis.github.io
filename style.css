@@ -1,11 +1,228 @@
-body {
-    background: rgb(0, 0, 0);
-  }
+/*--------------------------------------------------------------
+General styling
+--------------------------------------------------------------*/
 
-  img{
-    width:25%;
-  }
+/* for responsive images */
 
-  h1{
-    color:white
-  }
+
+img {
+	display: block;
+	border: 0;
+	width: 100%;
+	height: auto;
+}
+
+body{
+  background: #000
+}
+
+
+/* Promo section */
+
+.logo,
+.site-title {
+	text-align: center;
+}
+
+.logo {
+	font-size: 8em;
+  font-family: 'Jost', sans-serif;
+  font-weight: 700;
+  color: white
+}
+
+.site-title {
+	margin-top: -1em;
+	margin-bottom: 3em;
+   font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  color: white;
+ animate: fadeIn;
+}
+
+.nav{
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  color: white;
+padding: 10px;  
+}
+
+.tabs{
+   display: flex;
+    flex-wrap: wrap;
+     justify-content: space-evenly;
+}
+
+#linky{
+   color: white;
+}
+
+
+/* Splash section */
+
+.splash {
+	background: #b04040;
+}
+
+.splash-content {
+	padding: 1.5em;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 600px) {
+	.splash-text {
+		columns: 2;
+		column-gap: 2em;
+	}
+
+	.splash-text p {
+		padding-top: 0;
+    font-family: 'Jost', sans-serif;
+  font-weight: 500;
+	}
+}
+
+/* Buckets section */
+
+
+
+.buckets {
+	padding: 1em 1em 1em;
+	background: #183e51;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+}
+
+.aboutme{
+  font-size:50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buckets ul {
+	margin: 0;
+	padding: 0;
+}
+
+.buckets li {
+	margin-bottom: 1em;
+	background: white;
+	font-family: 'Jost', sans-serif;
+  font-weight: 500;
+}
+
+.bucket {
+	padding: 1.5em;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+}
+
+/* More section */
+
+.more {
+	padding: 2em;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  color: white
+}
+
+/* Twins section */
+
+.twin {
+	padding: 2em;
+	background: #00;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  color: white
+}
+
+.twin:last-of-type {
+	background: #00;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+}
+
+/* Colophon section */
+.colophon {
+	padding: 2em;
+	background: #e12222;
+	text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  color: white
+}
+
+/*--------------------------------------------------------------
+Use flex to create a three-bucket layout
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 700px) {
+	@supports (display: flex) {
+
+		.buckets ul {
+			display: flex;
+			justify-content: space-around;
+		}
+
+		.buckets li {
+			width: 31%;
+		}
+
+	}
+}
+
+/*--------------------------------------------------------------
+Basic responsive layout for all browsers:
+--------------------------------------------------------------*/
+
+.site {
+	max-width: 50em;
+	margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+CSS Grid layout for modern browsers:
+--------------------------------------------------------------*/
+
+/* Check for CSS Grid support: */
+@supports (grid-area: auto) {
+
+	/* Enable grid for viewports 600px and wider: */
+	@media screen and (min-width: 600px) {
+
+		/* Disable fallback max-width center aligned rule: */
+		.site {
+			max-width: none;
+		}
+
+		/* Four-column layout: Two center columns have total width of 50em: */
+		.main-area > *,
+		.colophon {
+			display: grid;
+			grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+		}
+
+		/* Center items by placing them in the two center columns: */
+		.splash-content,
+		.more-content,
+		.buckets ul {
+			grid-column: 2/4;
+		}
+
+		/* Use automatic grid placement + span to let each item span two columns: */
+		.twin,
+		.colophon asi{
+			grid-column: 2 span;
+		}
+
+	}
+	
+}
+
+:target{
+  background;
+}
